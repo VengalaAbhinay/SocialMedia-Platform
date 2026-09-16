@@ -30,15 +30,14 @@ app.use("/post-api",PostAPI)
 app.use("/feed-api",FeedAPI)
 app.use("/admin-api",adminApp)
 
-const port=process.env.PORT
-
+const port = process.env.PORT || 8000;
 //connect to db server
  async function connectDB(){
     try{
     await connect(process.env.DB_URL)
     console.log("DB Connection Success")
     //start server
-    app.listen(8000,()=>console.log("server on port 8000...."))
+    app.listen(port, () => console.log(`server on port ${port}....`))
     }
     catch(err){
         console.log("Error in DB connection:",err)
