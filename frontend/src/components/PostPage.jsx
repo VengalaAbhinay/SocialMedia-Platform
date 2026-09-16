@@ -180,7 +180,7 @@ function Comment({ c, postId, currentUser, onDelete, navigate }) {
             <img
               src={c.author.profilePic}
               className="w-8 h-8 rounded-full object-cover cursor-pointer"
-              alt=""
+              alt={c.author?.name || c.author?.username}
               onClick={() => navigate(`/profile/${c.author._id}`)}
             />
           ) : (
@@ -267,7 +267,7 @@ function Comment({ c, postId, currentUser, onDelete, navigate }) {
               <div className="flex items-center justify-between">
                 <div className={commentUserRow}>
                   {r.author?.profilePic ? (
-                    <img src={r.author.profilePic} className="w-6 h-6 rounded-full object-cover" alt="" />
+                    <img src={r.author.profilePic} className="w-6 h-6 rounded-full object-cover" alt={r.author?.name || r.author?.username} />
                   ) : (
                     <div className={`${avatar} w-6 h-6 text-[10px]`}>
                       {r.author?.name?.charAt(0).toUpperCase()}
@@ -426,7 +426,7 @@ function PostPage() {
           onClick={() => navigate(`/profile/${post.author?._id}`)}
         >
           {post.author?.profilePic ? (
-            <img src={post.author.profilePic} className="w-9 h-9 rounded-full object-cover" alt="" />
+            <img src={post.author.profilePic} className="w-9 h-9 rounded-full object-cover" alt={post.author?.name || post.author?.username} />
           ) : (
             <div className={avatar}>{post.author?.name?.charAt(0).toUpperCase()}</div>
           )}

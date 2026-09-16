@@ -22,7 +22,7 @@ function UserListModal({ title, users, onClose, onUserClick }) {
       <div className={modalBox} onClick={e => e.stopPropagation()}>
         <div className={modalHeader}>
           <p className={modalTitle}>{title}</p>
-          <button onClick={onClose} className="w-7 h-7 flex items-center justify-center rounded-full hover:bg-[#f4f4f5] dark:hover:bg-[#27272a] text-[#a1a1aa] text-lg transition">×</button>
+          <button onClick={onClose} aria-label="Close" className="w-7 h-7 flex items-center justify-center rounded-full hover:bg-[#f4f4f5] dark:hover:bg-[#27272a] text-[#a1a1aa] text-lg transition">×</button>
         </div>
         <div className={modalBody}>
           {!users?.length
@@ -30,7 +30,7 @@ function UserListModal({ title, users, onClose, onUserClick }) {
             : users.map(u => (
                 <div key={u._id} className={searchResultCard} onClick={() => { onClose(); onUserClick(u._id); }}>
                   {u.profilePic
-                    ? <img src={u.profilePic} className="w-10 h-10 rounded-full object-cover" alt="" />
+                    ? <img src={u.profilePic} className="w-10 h-10 rounded-full object-cover" alt={u.name || u.username} />
                     : <div className={`${avatar} w-10 h-10 text-sm`}>{u.name?.charAt(0).toUpperCase()}</div>
                   }
                   <div>
@@ -62,7 +62,7 @@ function FollowRequestsPanel({ requests, onAccept, onReject, onNavigate }) {
               onClick={() => onNavigate(r._id)}
             >
               {r.profilePic
-                ? <img src={r.profilePic} className="w-8 h-8 rounded-full object-cover" alt="" />
+                ? <img src={r.profilePic} className="w-8 h-8 rounded-full object-cover" alt={r.name || r.username} />
                 : <div className={`${avatar} w-8 h-8 text-xs`}>{r.name?.charAt(0).toUpperCase()}</div>
               }
               <div>
@@ -135,6 +135,7 @@ function ChangePasswordForm({ onClose }) {
             type="password"
             className={inputClass}
             placeholder="Enter current password"
+            autoComplete="current-password"
             {...register("currentPassword", { required: "Current password is required" })}
           />
           {errors.currentPassword && <p className="text-xs text-rose-500 mt-1">{errors.currentPassword.message}</p>}
@@ -145,6 +146,7 @@ function ChangePasswordForm({ onClose }) {
             type="password"
             className={inputClass}
             placeholder="Min. 8 characters"
+            autoComplete="new-password"
             {...register("newPassword", {
               required: "New password is required",
               minLength: { value: 8, message: "At least 8 characters required" },
@@ -158,6 +160,7 @@ function ChangePasswordForm({ onClose }) {
             type="password"
             className={inputClass}
             placeholder="Re-enter new password"
+            autoComplete="new-password"
             {...register("confirmPassword", { required: "Please confirm your new password" })}
           />
           {errors.confirmPassword && <p className="text-xs text-rose-500 mt-1">{errors.confirmPassword.message}</p>}
@@ -295,7 +298,7 @@ function UserProfile() {
           {/* Avatar + Info */}
           <div className="flex items-center gap-4">
             {profile.profilePic
-              ? <img src={profile.profilePic} className="w-20 h-20 rounded-full object-cover ring-2 ring-violet-200 dark:ring-violet-800" alt="" />
+              ? <img src={profile.profilePic} className="w-20 h-20 rounded-full object-cover ring-2 ring-violet-200 dark:ring-violet-800" alt={profile.name || profile.username} />
               : <div className={`${avatar} w-20 h-20 text-2xl`}>{profile.name?.charAt(0).toUpperCase()}</div>
             }
             <div>
@@ -312,7 +315,7 @@ function UserProfile() {
           </div>
 
           {/* Stats */}
-          <div className="flex gap-6">
+          <div className="flex gap-6 flex-wrap justify-center sm:justify-end w-full sm:w-auto">
             <div className={profileStat}>
               <span className={profileStatNumber}>{posts.length}</span>
               <span className={profileStatLabel}>Posts</span>

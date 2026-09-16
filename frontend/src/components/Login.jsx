@@ -71,6 +71,7 @@ function Login() {
               type="email"
               placeholder="you@example.com"
               className={inputClass}
+              autoComplete="email"
               {...register("email", {
                 required: "Email is required",
                 validate: (v) => v.trim().length > 0 || "Email cannot be empty",
@@ -86,6 +87,7 @@ function Login() {
               type="password"
               placeholder="••••••••"
               className={inputClass}
+              autoComplete="current-password"
               {...register("password", {
                 required: "Password is required",
                 validate: (v) => v.trim().length > 0 || "Password cannot be empty",

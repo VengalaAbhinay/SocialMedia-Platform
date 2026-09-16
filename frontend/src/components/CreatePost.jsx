@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
@@ -28,9 +28,19 @@ function CreatePost() {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setPreview(URL.createObjectURL(file));
+      setPreview((prev) => {
+        if (prev) URL.revokeObjectURL(prev);
+        return URL.createObjectURL(file);
+      });
     }
   };
+
+  // Release the preview URL when the component unmounts
+  useEffect(() => {
+    return () => {
+      if (preview) URL.revokeObjectURL(preview);
+    };
+  }, [preview]);
 
   // POST /post-api/create — multipart/form-data { image, caption }
   const onSubmit = async (formData) => {
@@ -73,7 +83,7 @@ function CreatePost() {
             <input
               type="file"
               accept="image/png,image/jpeg,image/webp"
-              className="w-full text-sm text-[#6e6e73] file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#0066cc] file:text-white hover:file:bg-[#004499] cursor-pointer"
+              className="w-full text-sm text-[#64748b] dark:text-[#94a3b8] file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-600 dark:file:bg-violet-500 file:text-white hover:file:bg-violet-700 dark:hover:file:bg-violet-600 cursor-pointer"
               {...register("image", { required: "Image is required" })}
               onChange={(e) => {
                 register("image").onChange(e);

@@ -68,6 +68,7 @@ function Register() {
               type="text"
               className={inputClass}
               placeholder="Your full name"
+              autoComplete="name"
               {...register("name", {
                 required: "Name is required",
                 minLength: { value: 2, message: "At least 2 characters required" },
@@ -83,6 +84,7 @@ function Register() {
               type="text"
               className={inputClass}
               placeholder="lowercase_username"
+              autoComplete="username"
               {...register("username", {
                 required: "Username is required",
                 minLength: { value: 3, message: "At least 3 characters required" },
@@ -102,6 +104,7 @@ function Register() {
               type="email"
               className={inputClass}
               placeholder="you@example.com"
+              autoComplete="email"
               {...register("email", { required: "Email is required" })}
             />
             {errors.email && <p className="text-xs text-rose-500 mt-1">{errors.email.message}</p>}
@@ -114,6 +117,7 @@ function Register() {
               type="password"
               className={inputClass}
               placeholder="Min. 8 characters"
+              autoComplete="new-password"
               {...register("password", {
                 required: "Password is required",
                 minLength: { value: 8, message: "At least 8 characters required" },

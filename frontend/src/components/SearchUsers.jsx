@@ -90,10 +90,10 @@ function SearchUsers() {
                 </div>
               )}
               <div className="min-w-0">
-                <p className="text-sm font-semibold text-[#1d1d1f] truncate">{user.name}</p>
+                <p className="text-sm font-semibold text-[#0f172a] dark:text-white truncate">{user.name}</p>
                 <p className={`${mutedText} truncate`}>@{user.username}</p>
                 {user.bio && (
-                  <p className="text-xs text-[#6e6e73] truncate mt-0.5">{user.bio}</p>
+                  <p className="text-xs text-[#64748b] dark:text-[#94a3b8] truncate mt-0.5">{user.bio}</p>
                 )}
               </div>
             </div>

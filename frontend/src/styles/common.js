@@ -19,7 +19,7 @@ export const linkClass       = "text-violet-600 dark:text-violet-400 hover:text-
 
 // ─── Buttons ──────────────────────────────────────────
 export const primaryBtn =
-  "bg-violet-600 dark:bg-violet-500 text-white font-semibold px-5 py-2 rounded-xl hover:bg-violet-700 dark:hover:bg-violet-600 active:scale-[0.97] transition-all cursor-pointer text-sm shadow-sm shadow-violet-200 dark:shadow-none";
+  "bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-500 dark:to-indigo-500 text-white font-semibold px-5 py-2 rounded-xl hover:shadow-lg hover:shadow-violet-300/50 dark:hover:shadow-violet-900/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.97] transition-all cursor-pointer text-sm shadow-sm shadow-violet-200 dark:shadow-none";
 export const secondaryBtn =
   "border border-[#e2e8f0] dark:border-[#3f3f46] bg-white dark:bg-[#18181b] text-[#0f172a] dark:text-[#e4e4e7] font-medium px-5 py-2 rounded-xl hover:bg-[#f1f5f9] dark:hover:bg-[#27272a] active:scale-[0.97] transition-all cursor-pointer text-sm";
 export const ghostBtn =
@@ -38,7 +38,7 @@ export const inputClass  =
   "w-full bg-[#f8fafc] dark:bg-[#27272a] border border-[#e2e8f0] dark:border-[#3f3f46] rounded-xl px-4 py-2.5 text-[#0f172a] dark:text-white text-sm placeholder:text-[#94a3b8] dark:placeholder:text-[#52525b] focus:outline-none focus:border-violet-500 dark:focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 transition";
 export const formGroup   = "mb-4";
 export const submitBtn   =
-  "w-full bg-violet-600 dark:bg-violet-500 text-white font-semibold py-2.5 rounded-xl hover:bg-violet-700 transition-all cursor-pointer mt-2 text-sm shadow-sm shadow-violet-200 dark:shadow-none active:scale-[0.98]";
+  "w-full bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-500 dark:to-indigo-500 text-white font-semibold py-2.5 rounded-xl hover:shadow-lg hover:shadow-violet-300/50 dark:hover:shadow-violet-900/40 transition-all cursor-pointer mt-2 text-sm shadow-sm shadow-violet-200 dark:shadow-none active:scale-[0.98]";
 export const textareaClass =
   "w-full bg-[#f8fafc] dark:bg-[#27272a] border border-[#e2e8f0] dark:border-[#3f3f46] rounded-xl px-4 py-2.5 text-[#0f172a] dark:text-white text-sm placeholder:text-[#94a3b8] focus:outline-none focus:border-violet-500 dark:focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 transition resize-none";
 

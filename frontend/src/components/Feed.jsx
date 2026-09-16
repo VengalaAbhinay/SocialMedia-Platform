@@ -16,15 +16,15 @@ import {
 // Skeleton placeholder for a single post card
 function PostSkeleton() {
   return (
-    <div className="bg-[#f5f5f7] rounded-2xl overflow-hidden animate-pulse">
-      <div className="w-full aspect-square bg-[#e0e0e5]" />
+    <div className="bg-[#f5f5f7] dark:bg-[#18181b] rounded-2xl overflow-hidden animate-pulse">
+      <div className="w-full aspect-square bg-[#e0e0e5] dark:bg-[#27272a]" />
       <div className="p-4 flex flex-col gap-2">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-full bg-[#d2d2d7]" />
-          <div className="h-3 w-24 bg-[#d2d2d7] rounded-full" />
+          <div className="w-7 h-7 rounded-full bg-[#d2d2d7] dark:bg-[#3f3f46]" />
+          <div className="h-3 w-24 bg-[#d2d2d7] dark:bg-[#3f3f46] rounded-full" />
         </div>
-        <div className="h-3 w-full bg-[#d2d2d7] rounded-full" />
-        <div className="h-3 w-16 bg-[#d2d2d7] rounded-full" />
+        <div className="h-3 w-full bg-[#d2d2d7] dark:bg-[#3f3f46] rounded-full" />
+        <div className="h-3 w-16 bg-[#d2d2d7] dark:bg-[#3f3f46] rounded-full" />
       </div>
     </div>
   );
@@ -67,7 +67,7 @@ function Feed() {
         <p className={emptyStateClass}>
           No posts yet. Follow some users or check out{" "}
           <span
-            className="text-[#0066cc] cursor-pointer"
+            className="text-violet-600 dark:text-violet-400 hover:text-violet-800 dark:hover:text-violet-300 font-medium cursor-pointer transition-colors"
             onClick={() => navigate("/explore")}
           >
             Explore
@@ -101,7 +101,7 @@ function Feed() {
                       {post.author?.name?.charAt(0).toUpperCase()}
                     </div>
                   )}
-                  <span className="text-sm font-medium text-[#1d1d1f]">
+                  <span className="text-sm font-medium text-[#0f172a] dark:text-white">
                     {post.author?.username}
                   </span>
                 </div>

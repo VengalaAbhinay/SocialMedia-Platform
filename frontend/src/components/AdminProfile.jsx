@@ -29,9 +29,9 @@ function StatCard({ label, value, color = "violet" }) {
     rose:    "bg-rose-50 dark:bg-rose-900/10 text-rose-600 dark:text-rose-400 border-rose-100 dark:border-rose-900/30",
   };
   return (
-    <div className={`border rounded-2xl px-5 py-4 ${colors[color]}`}>
-      <p className="text-2xl font-bold">{value}</p>
-      <p className="text-xs font-semibold uppercase tracking-wider mt-0.5 opacity-70">{label}</p>
+    <div className={`border rounded-2xl px-3 py-3 sm:px-5 sm:py-4 ${colors[color]}`}>
+      <p className="text-xl sm:text-2xl font-bold">{value}</p>
+      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider mt-0.5 opacity-70 truncate">{label}</p>
     </div>
   );
 }
@@ -100,7 +100,7 @@ function AdminProfile() {
 
       {/* Stats */}
       {!loading && users.length > 0 && (
-        <div className="grid grid-cols-3 gap-3 mb-8">
+        <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-8">
           <StatCard label="Total Users"   value={users.length} color="violet" />
           <StatCard label="Active"        value={activeCount}  color="emerald" />
           <StatCard label="Blocked"       value={blockedCount} color="rose" />
@@ -116,7 +116,7 @@ function AdminProfile() {
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder="Search by name, username or email…"
-            className="bg-white dark:bg-[#18181b] border border-[#e2e8f0] dark:border-[#27272a] rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 transition w-64 text-[#0f172a] dark:text-white placeholder:text-[#94a3b8]"
+            className="bg-white dark:bg-[#18181b] border border-[#e2e8f0] dark:border-[#27272a] rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 transition w-full sm:w-64 text-[#0f172a] dark:text-white placeholder:text-[#94a3b8]"
           />
         )}
       </div>
@@ -151,7 +151,7 @@ function AdminProfile() {
                     <td className={adminTd}>
                       <div className="flex items-center gap-2.5">
                         {user.profilePic
-                          ? <img src={user.profilePic} className="w-8 h-8 rounded-full object-cover" alt="" />
+                          ? <img src={user.profilePic} className="w-8 h-8 rounded-full object-cover" alt={user.name || user.username} />
                           : <div className={`${avatar} w-8 h-8 text-xs`}>{user.name?.charAt(0).toUpperCase()}</div>
                         }
                         <div>

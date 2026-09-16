@@ -13,6 +13,7 @@ import OtherUserProfile from "./components/OtherUserProfile.jsx";
 import SearchUsers from "./components/SearchUsers.jsx";
 import AdminProfile from "./components/AdminProfile.jsx";
 import Unauthorized from "./components/Unauthorized.jsx";
+import NotFound from "./components/NotFound.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 function App() {
@@ -108,6 +109,10 @@ function App() {
         {
           path: "unauthorized",
           element: <Unauthorized />,
+        },
+        {
+          path: "*",
+          element: <NotFound />,
         },
       ],
     },
