@@ -1,7 +1,7 @@
 import exp from 'express'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import { UserModel } from '../Models/UserModel.js'
+import { UserModel } from '../models/UserModel.js'
 import { verifyToken } from '../middlewares/verifyToken.js'
 import { upload } from '../config/multer.js'
 import { uploadToCloudinary } from '../config/cloudinaryUpload.js'
