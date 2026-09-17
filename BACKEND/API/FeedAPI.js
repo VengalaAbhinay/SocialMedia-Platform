@@ -1,6 +1,6 @@
 import exp from 'express'
-import { PostModel } from '../Models/PostModel.js'
-import { UserModel } from '../Models/UserModel.js'
+import { PostModel } from '../models/PostModel.js'
+import { UserModel } from '../models/UserModel.js'
 import { verifyToken } from '../middlewares/verifyToken.js'
 
 export const FeedAPI = exp.Router()
