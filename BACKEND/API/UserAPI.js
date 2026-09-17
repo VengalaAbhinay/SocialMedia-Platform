@@ -50,10 +50,10 @@ userApp.post('/login', async (req, res) => {
     )
 
     res.cookie('token', signedToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-    })
+  httpOnly: true,
+  secure: true,
+  sameSite: 'none',
+})
 
     const userObj = user.toObject()
     delete userObj.password
@@ -74,10 +74,10 @@ userApp.post('/login', async (req, res) => {
 userApp.get('/logout', (req, res) => {
   try {
     res.clearCookie('token', {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-    })
+  httpOnly: true,
+  secure: true,
+  sameSite: 'none',
+})
     res.status(200).json({ message: 'Logout successful' })
   } catch (err) {
     res.status(500).json({ message: 'Failed to logout.', error: err.message })
