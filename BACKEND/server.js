@@ -15,8 +15,11 @@ config();  //process.env.PORT,process.env.DB_URL
 const app=exp()
 //app.listen(4000,()=>console.log("server on port 4000...."))//if DB connection has failed then there is no use of http server so first we need to check db connection and later http server
 app.use(cors({
-  origin:"http://localhost:5173",
-  credentials:true
+  origin: [
+    "http://localhost:5173",
+    "https://socialmedia-platform-gray.vercel.app"
+  ],
+  credentials: true
 }));
 //use body parser middleware
 app.use(exp.json())
